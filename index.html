@@ -74,19 +74,20 @@
 		</section>
 	</main>
 
-	<script>
-		var paciente = document.querySelector("#paciente");
+	<script>  
 
-		var tdPeso = paciente.querySelector(".info-peso");
-		var tdAltura = paciente.querySelector(".info-altura");
-		var tdImc = paciente.querySelector(".info-imc");
+	var paciente = document.querySelector("#paciente");
 
-		var peso = tdPeso.textContent;
-		var altura = tdAltura.textContent;
+    var tdPeso = paciente.querySelector(".info-peso");
+    var tdAltura = paciente.querySelector(".info-altura");
+	var tdImc = paciente.querySelector(".info-imc");
 
-		var imc = peso / (altura * altura); 
+	var Peso = tdPeso.textContent;
+	var Altura = tdAltura.textContent;
 
-		tdImc.textContent = imc;
+	var Imc = Peso/(Altura*Altura);
+
+    tdImc.textContent = Imc;
 	</script>
 </body>
 
