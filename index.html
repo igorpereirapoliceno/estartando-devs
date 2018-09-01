@@ -30,10 +30,10 @@
 					</tr>
 				</thead>
 				<tbody id="tabela-pacientes">
-					<tr class="paciente" id="paciente">
+					<tr class="paciente">
 						<td class="info-nome">Paulo</td>
-						<td class="info-peso">100</td>
-						<td class="info-altura">2.00</td>
+						<td class="info-peso">800</td>
+						<td class="info-altura">5.00</td>
 						<td class="info-gordura">10</td>
 						<td class="info-imc">0</td>
 					</tr>
@@ -74,20 +74,54 @@
 		</section>
 	</main>
 
-	<script>  
+	<script>
+		// instanciando os pacientes da tabela 
+		var pacientes = document.querySelectorAll(".paciente");
 
-	var paciente = document.querySelector("#paciente");
+        // loop que percorre os pacientes da tabela e calcula o imc 
+		for(var i = 0; i < pacientes.length; i = i + 1){
 
-    var tdPeso = paciente.querySelector(".info-peso");
-    var tdAltura = paciente.querySelector(".info-altura");
-	var tdImc = paciente.querySelector(".info-imc");
+		//variavel referente ao indice do paciente 	
+			var paciente = pacientes[i];
 
-	var Peso = tdPeso.textContent;
-	var Altura = tdAltura.textContent;
+		
 
-	var Imc = Peso/(Altura*Altura);
+		// variaveis alemento td 
+		var tdPeso = paciente.querySelector(".info-peso");
+		var tdAltura = paciente.querySelector(".info-altura");
+		var tdImc = paciente.querySelector(".info-imc");
+        
+		// variaves dados da tabela 
+		var peso = tdPeso.textContent;
+		var altura = tdAltura.textContent;
+        
+		var pesoEhValida = true;
+		var alturaEhValida = true;
+        
+		//VALIDAÇÃO ALTURA E PESO 
+		if(peso >= 200 || peso <= 0){
+             console.log('peso inválido');
+			 pesoEhValida = false;
+			 tdImc.textContent = "Peso invalido";
+			 paciente.classList.add('paciente-invalido');
+		}
+		if(altura >= 3.00 || altura <= 0){
+			console.log('altura inválida');
+			alturaEhValida = false;
+			tdImc.textContent = "altura invalida";
+			paciente.classList.add('paciente-invalido');
+		}
 
-    tdImc.textContent = Imc;
+		// calculo  imc
+		if(pesoEhValida && alturaEhValida){
+
+		var Imc = peso/(altura*altura);
+		
+		tdImc.textContent = Imc.toFixed(2);
+		}
+		}
+
+
 	</script>
 </body>
 
