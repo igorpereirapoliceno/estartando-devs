@@ -31,28 +31,27 @@ var botaoAdicionar = document.querySelector('#adicionar-paciente');
         
         function montarTr(paciente){
             var pacienteTr = document.createElement("tr")
-        
-            var nomeTd = document.createElement('td');
-            var pesoTd = document.createElement('td');
-            var alturaTd = document.createElement('td');
-            var gorduraTd = document.createElement('td');
-            var imcTd = document.createElement('td');
-        
-            nomeTd.textContent = paciente.nome;
-            pesoTd.textContent = paciente.peso;
-            alturaTd.textContent = paciente.altura;            
-            gorduraTd.textContent = paciente.gordura;
-            imcTd.textContent = paciente.imc;
-        
-            pacienteTr.appendChild(nomeTd);
-            pacienteTr.appendChild(pesoTd);
-            pacienteTr.appendChild(alturaTd);
-            pacienteTr.appendChild(gorduraTd);
-            pacienteTr.appendChild(imcTd);
+            pacienteTr.classList.add('paciente');
+            
+            pacienteTr.appendChild((paciente.nome, "info-nome"));
+            pacienteTr.appendChild((paciente.peso, "info-peso"));
+            pacienteTr.appendChild((paciente.altura, "info-altura"));
+            pacienteTr.appendChild((paciente.gordura, "info-gordura"));
+            pacienteTr.appendChild((paciente.imc, "info-imc"));
         
         
         
             return pacienteTr;
+        }
+
+        function montarTd(dado,classe){
+            var td = document.createElement('td');
+            td.textContent = dado;
+            td.classList.add(classe);
+
+            return td
+
+
         }
 
           
